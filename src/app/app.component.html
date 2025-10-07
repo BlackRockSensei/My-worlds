@@ -1,0 +1,27 @@
+<nav class="fantasy-navbar">
+  <div class="logo">
+    <span class="logo-icon">🌌</span>
+    <span>Mis mundos</span>
+  </div>
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <ul class="menu">
+    <li (click)="toHome()">
+      <span class="nav-icon">🏠</span> Inicio
+    </li>
+    <li class="dropdown">
+      <span class="nav-icon">📚</span> Proyectos ▼
+      <ul class="dropdown-content">
+        <li (click)="toProyectos('1')"><span class="nav-icon">🗡️</span> Inmortal</li>
+        <li (click)="toProyectos('2')"><span class="nav-icon">🧠</span> Las trece puertas</li>
+        <li (click)="toProyectos('3')"><span class="nav-icon">🔥</span> La llama eterna (próximamente)</li>
+      </ul>
+    </li>
+    <li (click)="toSobremi()">
+      <span class="nav-icon">🧙‍♂️</span> Sobre mí
+    </li>
+  </ul>
+</nav>
+<div class="fantasy-bg">
+ <router-outlet></router-outlet>
+</div>

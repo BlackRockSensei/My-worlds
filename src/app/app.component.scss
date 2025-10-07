@@ -1,0 +1,295 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  min-height: 100vh;
+}
+
+.fantasy-navbar {
+  background: rgba(20, 30, 48, 0.95);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  flex: 1;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  .logo-icon {
+    font-size: 1.8rem;
+    animation: pulse 2s infinite;
+  }
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.menu li {
+  position: relative;
+  color: #e0c179;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  display: block;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255,215,0,0.3);
+  }
+
+  .nav-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2em;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(20, 30, 48, 0.98);
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  z-index: 1;
+  border-radius: 12px;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  
+  li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #e0c179;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255,215,0,0.5);
+  }
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(20, 30, 48, 0.98);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    padding: 1rem 0;
+    
+    li {
+      margin: 0.5rem 1rem;
+    }
+  }
+  
+  #menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .menu-icon {
+    display: block;
+  }
+  
+  .dropdown-content {
+    position: static;
+    transform: none;
+    background: rgba(255,255,255,0.05);
+    box-shadow: none;
+    border: none;
+    margin: 0.5rem 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fantasy-bg {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  overflow: hidden;
+}
+
+/* Estrellas animadas */
+.fantasy-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: url('https://raw.githubusercontent.com/Julian-Nash/starfield/master/starfield.png');
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Efecto de naturaleza/magia */
+.fantasy-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  min-height: 100vh;
+}
+
+.fantasy-bg {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+  /* Puedes cambiar la URL por cualquier imagen de fondo fantástica que prefieras */
+  overflow: hidden;
+}
+
+.central-content {
+  max-width: 700px;
+  margin: 4rem auto;
+  background: rgba(34, 49, 63, 0.85);
+  color: #ffd700;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.central-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.central-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.images-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.images-row img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border: 2px solid #ffd700;
+  background: #232526;
+}
+
+/* Solo muestra el menú si el checkbox está marcado */
+.menu {
+  display: flex;
+  /* ...otros estilos... */
+}
+
+@media (max-width: 900px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #232526;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    z-index: 100;
+  }
+  #menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+  }
+  .menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 2rem;
+    z-index: 101;
+  }
+}
