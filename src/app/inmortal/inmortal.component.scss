@@ -1,35 +1,160 @@
-.inmortal-content {
-  max-width: 600px;
-  margin: 6rem auto;
+// Mixins para estilos comunes
+@mixin glass-panel {
   background: rgba(40, 40, 60, 0.85);
-  color: #f3e9e1;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  padding: 3rem 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  color: #f3e9e1;
 }
 
-.inmortal-content h2 {
+@mixin golden-title {
   font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 2px;
   color: #ffd700;
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  letter-spacing: 2px;
 }
 
-.inmortal-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
+// Estilos base
+.inmortal-content {
+  @include glass-panel;
+  max-width: 800px;
+  margin: 6rem auto;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  
+  h2 {
+    @include golden-title;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
 }
 
-.inmortal-content img {
-  margin-bottom: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+// Secciones con scroll
+.scroll-section {
+  @include glass-panel;
+  max-width: 800px;
+  margin: 8rem auto;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.personajes {
+    transform: translateX(100px);
+    
+    &.visible {
+      transform: translateX(0);
+    }
+    
+    .content-wrapper {
+      flex-direction: row-reverse;
+    }
+  }
+
+  h2 {
+    @include golden-title;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    
+    img {
+      width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: scale(0.9);
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      }
+    }
+
+    .text-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0.3s;
+      
+      p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+    }
+  }
+  
+  &.visible {
+    h2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .content-wrapper {
+      img {
+        opacity: 1;
+        transform: scale(1);
+        transition-delay: 0.2s;
+      }
+      
+      .text-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Media queries para responsividad
+@media (max-width: 768px) {
+  .scroll-section {
+    margin: 4rem auto;
+    padding: 2rem;
+    
+    .content-wrapper {
+      flex-direction: column !important;
+      text-align: center;
+      gap: 2rem;
+      
+      img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
 }
