@@ -1,0 +1,28 @@
+.fantasy-footer {
+  background: linear-gradient(135deg, rgba(40, 40, 60, 0.85), rgba(20, 30, 48, 0.95));
+  color: #e0d5ff;
+  padding: 2rem 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+
+      a {
+        color: #b19cd9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #d8a5ff;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

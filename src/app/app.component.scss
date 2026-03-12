@@ -1,6 +1,15 @@
-body, html {
+:host {
+  display: block;
+  border: none;
+  outline: none;
   margin: 0;
   padding: 0;
+}
+
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
   font-family: 'Cinzel', serif;
   background: 
     linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 20%, #16213e 40%, #0f3460 60%, #16213e 80%, #1a1a2e 100%);
@@ -14,7 +23,7 @@ body, html {
 }
 
 .fantasy-navbar {
-  background: rgba(20, 30, 48, 0.95);
+  background: linear-gradient(135deg, rgba(40, 40, 60, 0.85), rgba(20, 30, 48, 0.95));
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
@@ -22,7 +31,6 @@ body, html {
   position: relative;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
   z-index: 1000;
 }
 
@@ -239,22 +247,15 @@ body, html {
   mix-blend-mode: overlay;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cinzel', serif;
-  min-height: 100vh;
-}
-
 .fantasy-bg {
-  min-height: 100vh;
-  padding: 2rem;
   position: relative;
   background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=2000&q=100') center center/cover no-repeat fixed;
   overflow: hidden;
   z-index: 1;
   background-attachment: fixed;
   background-size: cover;
+  margin: 0;
+  border: none;
 }
 
 .central-content {
