@@ -1,35 +1,70 @@
-.sobremi-content {
-  max-width: 600px;
-  margin: 6rem auto;
-  background: rgba(40, 40, 60, 0.85);
-  color: #f3e9e1;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  padding: 3rem 2rem;
-  text-align: center;
+.world-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 4.5rem auto 4rem;
+  padding: 0 1.5rem;
   position: relative;
-  z-index: 2;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.08);
+  z-index: 1;
 }
 
-.sobremi-content h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 2px;
-  color: #ffd700;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.world-hero-cover {
+  flex: 0 0 280px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
 }
 
-.sobremi-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
+.world-hero-info {
+  flex: 1;
+  min-width: 260px;
 }
 
-.sobremi-content img {
+.world-hero-info h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--color-ink);
   margin-bottom: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+
+.world-hero-info p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink-muted);
+}
+
+/* Retrato circular para distinguir esta página de las portadas de libro */
+.world-hero--profile .world-hero-cover {
+  flex-basis: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--color-accent);
+
+  img {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 760px) {
+  .world-hero {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .world-hero-cover {
+    flex: 0 0 auto;
+    width: min(260px, 70vw);
+  }
+
+  .world-hero--profile .world-hero-cover {
+    width: min(220px, 60vw);
+  }
 }

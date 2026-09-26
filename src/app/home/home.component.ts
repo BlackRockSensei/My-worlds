@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onScroll() {
     if (typeof window !== 'undefined') {
       const sections = document.querySelectorAll('.scroll-section');

@@ -1,28 +1,66 @@
-<nav class="fantasy-navbar">
-  <div class="logo">
-    <span class="logo-icon">🌌</span>
-    <span>Mis mundos</span>
-  </div>
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon">&#9776;</label>
-  <ul class="menu">
-    <li (click)="toHome()">
+<header class="site-header">
+  <a class="brand" routerLink="/" (click)="closeMenu()">
+    <span class="brand-mark">🌌</span>
+    <span class="brand-name">Mis Mundos</span>
+  </a>
+
+  <button
+    type="button"
+    class="nav-toggle"
+    [class.is-active]="menuOpen"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen"
+    aria-controls="site-nav"
+    aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="site-nav" id="site-nav" [class.is-open]="menuOpen">
+    <a
+      routerLink="/"
+      routerLinkActive="is-current"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMenu()"
+      class="nav-link">
       <span class="nav-icon">🏠</span> Inicio
-    </li>
-    <li class="dropdown">
-      <span class="nav-icon">📚</span> Proyectos <span class="dropdown-arrow">▼</span>
-      <ul class="dropdown-content">
-        <li (click)="toProyectos('1')"><span class="nav-icon">🗡️</span> Inmortal</li>
-        <li (click)="toProyectos('2')"><span class="nav-icon">🧠</span> Las trece puertas</li>
-        <li (click)="toProyectos('3')"><span class="nav-icon">🔥</span> La llama eterna (próximamente)</li>
-      </ul>
-    </li>
-    <li (click)="toSobremi()">
+    </a>
+
+    <div class="nav-group">
+      <span class="nav-link nav-group-label">
+        <span class="nav-icon">📚</span> Proyectos
+      </span>
+      <div class="nav-submenu">
+        <a routerLink="/proyecto1" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <span class="nav-icon">🗡️</span> Inmortal
+        </a>
+        <a routerLink="/proyecto2" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <span class="nav-icon">🧠</span> Las trece puertas
+        </a>
+        <a routerLink="/proyecto3" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <span class="nav-icon">✨</span> Azalon
+        </a>
+      </div>
+    </div>
+
+    <a routerLink="/sobremi" routerLinkActive="is-current" (click)="closeMenu()" class="nav-link">
       <span class="nav-icon">🧙‍♂️</span> Sobre mí
-    </li>
-  </ul>
-</nav>
-<div class="fantasy-bg">
- <router-outlet></router-outlet>
-</div>
+    </a>
+  </nav>
+
+  <button
+    type="button"
+    class="nav-backdrop"
+    [class.is-visible]="menuOpen"
+    (click)="closeMenu()"
+    aria-hidden="true"
+    tabindex="-1">
+  </button>
+</header>
+
+<main class="fantasy-bg">
+  <router-outlet></router-outlet>
+</main>
+
 <app-footer></app-footer>

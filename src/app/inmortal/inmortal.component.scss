@@ -1,196 +1,140 @@
-// Mixins para estilos comunes
-@mixin glass-panel {
-  background: rgba(40, 40, 60, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  color: #f3e9e1;
+.world-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 4.5rem auto 4rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-@mixin golden-title {
-  font-family: 'Cinzel', serif;
-  color: #ffd700;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  letter-spacing: 2px;
-}
-
-// Estilos base
-.inmortal-content {
-  @include glass-panel;
-  max-width: 800px;
-  margin: 6rem auto;
-  border-radius: 24px;
-  padding: 3rem 2rem;
-  text-align: center;
-  
-  h2 {
-    @include golden-title;
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
+.world-hero-cover {
+  flex: 0 0 280px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
 
   img {
-    max-width: 100%;
-    margin: 0 auto 1rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    display: block;
-    
-    &:hover {
-      transform: scale(1.02);
-    }
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
   }
 }
 
-// Secciones con scroll
-.scroll-section {
-  @include glass-panel;
-  max-width: 800px;
-  margin: 8rem auto;
-  padding: 3rem 2rem;
-  border-radius: 24px;
+.world-hero-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.world-hero-info h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+}
+
+.world-hero-info p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink-muted);
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+  color: var(--color-void);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px var(--color-accent-glow);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--color-accent-glow);
+}
+
+/* --- Bloques de contenido alternos --- */
+.world-block {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 4.5rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
   opacity: 0;
-  transform: translateX(-100px);
-  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-  
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+
   &.visible {
     opacity: 1;
-    transform: translateX(0);
-  }
-
-  &.personajes {
-    transform: translateX(100px);
-    
-    &.visible {
-      transform: translateX(0);
-    }
-    
-    .content-wrapper {
-      flex-direction: row-reverse;
-    }
-  }
-
-  h2 {
-    @include golden-title;
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    
-    img {
-      width: 300px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0;
-      transform: scale(0.9);
-      
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-      }
-    }
-
-    .text-content {
-      flex: 1;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      transition-delay: 0.3s;
-      
-      p {
-        font-size: 1.2rem;
-        line-height: 1.7;
-      }
-    }
-  }
-  
-  &.visible {
-    h2 {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .content-wrapper {
-      img {
-        opacity: 1;
-        transform: scale(1);
-        transition-delay: 0.2s;
-      }
-      
-      .text-content {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-}
-
-// Estilos para el enlace de Amazon
-.amazon-link {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-  color: #1a1a2e;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
-  cursor: pointer;
-  border: none;
-  font-family: 'Cinzel', serif;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.5);
-    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-  }
-
-  &:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
   }
 }
 
-// Media queries para responsividad
-@media (max-width: 768px) {
-  .scroll-section {
-    margin: 4rem auto;
-    padding: 2rem;
-    
-    .content-wrapper {
-      flex-direction: column !important;
-      text-align: center;
-      gap: 2rem;
-      
-      img {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
+.world-block--reverse {
+  flex-direction: row-reverse;
+}
+
+.world-block-media {
+  flex: 0 0 42%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+
+  img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+.world-block-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.world-block-text h2 {
+  font-size: 1.6rem;
+  color: var(--color-accent-soft);
+  margin-bottom: 0.9rem;
+}
+
+.world-block-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 760px) {
+  .world-hero {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3rem;
   }
 
-  .amazon-link {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+  .world-hero-cover {
+    flex: 0 0 auto;
+    width: min(260px, 70vw);
+  }
+
+  .world-block,
+  .world-block--reverse {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .world-block-media {
+    flex: 0 0 auto;
+    width: 100%;
   }
 }

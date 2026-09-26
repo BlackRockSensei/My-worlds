@@ -1,118 +1,115 @@
-.central-content {
-  max-width: 600px;
-  margin: 6rem auto;
-  background: rgba(40, 40, 60, 0.85);
-  color: #f3e9e1;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  padding: 3rem 2rem;
+.hero {
+  max-width: 640px;
+  margin: 4.5rem auto 3.5rem;
+  padding: 0 1.5rem;
   text-align: center;
   position: relative;
-  z-index: 2;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.08);
+  z-index: 1;
 }
 
-.central-content h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 2px;
+.hero-mark {
+  display: inline-block;
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 14px var(--color-accent-glow));
 }
 
-.dragon {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 3rem;
-  animation: flying 4s ease-in-out infinite;
-  z-index: 1000;
-  color: #ffd700;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 1rem;
+  color: var(--color-ink);
 }
 
-@keyframes flying {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(5deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
 }
 
-.central-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-// Secciones con scroll
-.scroll-section {
-  max-width: 800px;
-  margin: 8rem auto;
-  padding: 3rem 2rem;
-  border-radius: 24px;
+.world-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(40, 40, 60, 0.85);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  color: #f3e9e1;
-  backdrop-filter: blur(4px);
-  text-align: center;
-  
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out),
+    border-color 0.25s var(--ease-out);
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.4rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #ffd700;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  &:hover {
+    border-color: var(--color-accent);
   }
 
-  img {
-    margin: 0 auto 1rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    max-width: 100%;
-    display: block;
-    
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-
-  p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+  &:hover .world-cover img {
+    transform: scale(1.05);
   }
 }
 
-// Estilos para links que se ven como botones
-.link-section {
-  display: block;
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.world-cover {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-bg-deep);
 
-  &:hover {
-    box-shadow: 0 12px 48px rgba(255, 215, 0, 0.15);
-    transform: translateY(-4px);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out);
   }
+}
 
-  &:active {
-    transform: translateY(-2px);
-  }
+.world-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--color-ink-muted);
+}
+
+.world-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.world-info h2 {
+  font-size: 1.35rem;
+  color: var(--color-accent-soft);
+}
+
+.world-info p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+  flex: 1;
+}
+
+.world-cta {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
 }

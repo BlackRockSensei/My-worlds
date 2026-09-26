@@ -1,38 +1,37 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'my-worlds';
+  menuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  private closeMenu(): void {
-    const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
-    if (menuToggle) {
-      menuToggle.checked = false;
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+    this.syncBodyScroll();
+  }
+
+  closeMenu(): void {
+    if (!this.menuOpen) {
+      return;
     }
+    this.menuOpen = false;
+    this.syncBodyScroll();
   }
 
-  toHome() {
-    this.closeMenu();
-    this.router.navigate(['/']);
-  }
-
-  toProyectos(event: string) {
-    this.closeMenu();
-    this.router.navigate(['/proyecto' + event]);
-  }
-
-  toSobremi() {
-    this.closeMenu();
-    this.router.navigate(['/sobremi']);
+  private syncBodyScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    document.body.classList.toggle('nav-locked', this.menuOpen);
   }
 }
