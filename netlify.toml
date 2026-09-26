@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist/my-worlds/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Red de seguridad: si alguna ruta no tiene su propio index.html
+# prerenderizado, deja que la aplicación de Angular la resuelva
+# en el cliente en vez de mostrar el 404 de Netlify.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
