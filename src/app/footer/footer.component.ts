@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+
+  // Rellena estos valores para que aparezcan en el pie de página.
+  email = '';
+  instagramUrl = '';
 }

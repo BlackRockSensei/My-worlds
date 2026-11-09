@@ -1,15 +1,16 @@
 <section class="hero">
-  <span class="hero-mark">🐉</span>
+  <i class="hero-mark fa-solid fa-dragon" aria-hidden="true"></i>
   <h1>Bienvenido a Mis Mundos</h1>
+  <p class="hero-author">Javier Pérez Palomino</p>
   <p>
     Explora universos de magia, misterio y aventuras. Aquí comparto mis proyectos de escritura fantástica, donde cada historia es una puerta a lo imposible.
   </p>
 </section>
 
 <section class="shelf">
-  <a routerLink="/proyecto1" class="scroll-section world-card">
+  <a routerLink="/inmortal" appReveal class="scroll-section world-card">
     <div class="world-cover">
-      <img src="assets/mapa.png" alt="Mapa del mundo de Inmortal">
+      <img src="assets/mapa.webp" alt="Mapa del mundo de Inmortal">
     </div>
     <div class="world-info">
       <h2>Inmortal</h2>
@@ -20,9 +21,9 @@
     </div>
   </a>
 
-  <a routerLink="/proyecto2" class="scroll-section world-card">
+  <a routerLink="/las-trece-puertas" appReveal class="scroll-section world-card">
     <div class="world-cover">
-      <img src="assets/13puertas-portada.jpg" alt="Portada de Las Trece Puertas">
+      <img src="assets/13puertas-portada.webp" alt="Portada de Las Trece Puertas" loading="lazy">
     </div>
     <div class="world-info">
       <h2>Las Trece Puertas</h2>
@@ -33,22 +34,23 @@
     </div>
   </a>
 
-  <a routerLink="/proyecto3" class="scroll-section world-card">
+  <a routerLink="/azalon" appReveal class="scroll-section world-card">
     <div class="world-cover">
-      <div class="world-cover-placeholder" role="img" aria-label="Imagen de Azalon pendiente">
-        Imagen pendiente
-      </div>
+      <img src="assets/azalon-portada.webp" alt="Cabaña junto a un lago, entre bosques otoñales y montañas nevadas" loading="lazy">
+
     </div>
     <div class="world-info">
       <h2>Azalon</h2>
-      <p>Aquí irá la descripción de Azalon.</p>
+      <p>
+        Arrancado de la Tierra, un joven despierta en un reino de magia y guerra civil, y emprende la búsqueda de su amiga Yem, capturada por mercenarios.
+      </p>
       <span class="world-cta">Explorar el mundo</span>
     </div>
   </a>
 
-  <a routerLink="/sobremi" class="scroll-section world-card world-card--author">
+  <a routerLink="/sobremi" appReveal class="scroll-section world-card world-card--author">
     <div class="world-cover">
-      <img src="assets/foto.jpg" alt="Foto del autor">
+      <img src="assets/foto.webp" alt="Foto de Javier Pérez Palomino" loading="lazy">
     </div>
     <div class="world-info">
       <h2>Sobre mí</h2>

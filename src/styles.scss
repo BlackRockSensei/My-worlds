@@ -41,6 +41,11 @@ body {
   height: 100%;
 }
 
+/* Evita que el menú móvil cerrado, situado fuera de pantalla, añada scroll lateral */
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-body);
   background: var(--color-void);

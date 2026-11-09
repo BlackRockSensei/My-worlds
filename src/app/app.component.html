@@ -1,6 +1,6 @@
 <header class="site-header">
   <a class="brand" routerLink="/" (click)="closeMenu()">
-    <span class="brand-mark">🌌</span>
+    <i class="brand-mark fa-solid fa-book-atlas" aria-hidden="true"></i>
     <span class="brand-name">Mis Mundos</span>
   </a>
 
@@ -24,28 +24,28 @@
       [routerLinkActiveOptions]="{ exact: true }"
       (click)="closeMenu()"
       class="nav-link">
-      <span class="nav-icon">🏠</span> Inicio
+      <i class="nav-icon fa-solid fa-house" aria-hidden="true"></i> Inicio
     </a>
 
     <div class="nav-group">
       <span class="nav-link nav-group-label">
-        <span class="nav-icon">📚</span> Proyectos
+        <i class="nav-icon fa-solid fa-book" aria-hidden="true"></i> Proyectos
       </span>
       <div class="nav-submenu">
-        <a routerLink="/proyecto1" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
-          <span class="nav-icon">🗡️</span> Inmortal
+        <a routerLink="/inmortal" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <i class="nav-icon fa-solid fa-khanda" aria-hidden="true"></i> Inmortal
         </a>
-        <a routerLink="/proyecto2" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
-          <span class="nav-icon">🧠</span> Las trece puertas
+        <a routerLink="/las-trece-puertas" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <i class="nav-icon fa-solid fa-door-open" aria-hidden="true"></i> Las trece puertas
         </a>
-        <a routerLink="/proyecto3" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
-          <span class="nav-icon">✨</span> Azalon
+        <a routerLink="/azalon" routerLinkActive="is-current" (click)="closeMenu()" class="nav-sublink">
+          <i class="nav-icon fa-solid fa-wand-sparkles" aria-hidden="true"></i> Azalon
         </a>
       </div>
     </div>
 
     <a routerLink="/sobremi" routerLinkActive="is-current" (click)="closeMenu()" class="nav-link">
-      <span class="nav-icon">🧙‍♂️</span> Sobre mí
+      <i class="nav-icon fa-solid fa-feather-pointed" aria-hidden="true"></i> Sobre mí
     </a>
   </nav>
 

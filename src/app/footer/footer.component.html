@@ -1,14 +1,15 @@
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-copy">&copy; {{ currentYear }} Mis Mundos. Todos los derechos reservados.</p>
-    <div class="footer-links">
-      <!-- Aquí puedes agregar tu correo personal -->
-      <a href="mailto:tu-correo@ejemplo.com" class="footer-link">
-        <span>✉️</span> tu-correo&#64;ejemplo.com
-      </a>
-      <a href="https://instagram.com/tu-usuario-instagram" target="_blank" rel="noopener" class="footer-link">
-        <span>📷</span> Instagram
-      </a>
-    </div>
+    <p class="footer-copy">&copy; {{ currentYear }} Javier Pérez Palomino. Todos los derechos reservados.</p>
+    @if (email || instagramUrl) {
+      <div class="footer-links">
+        @if (email) {
+          <a [href]="'mailto:' + email" class="footer-link">{{ email }}</a>
+        }
+        @if (instagramUrl) {
+          <a [href]="instagramUrl" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+        }
+      </div>
+    }
   </div>
 </footer>

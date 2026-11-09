@@ -5,6 +5,25 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Direcciones antiguas de los proyectos.
+[[redirects]]
+  from = "/proyecto1"
+  to = "/inmortal"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/proyecto2"
+  to = "/las-trece-puertas"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/proyecto3"
+  to = "/azalon"
+  status = 301
+  force = true
+
 # Red de seguridad: si alguna ruta no tiene su propio index.html
 # prerenderizado, deja que la aplicación de Angular la resuelva
 # en el cliente en vez de mostrar el 404 de Netlify.

@@ -26,6 +26,13 @@
   color: var(--color-ink-muted);
 }
 
+.hero .hero-author {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  color: var(--color-accent-soft);
+}
+
 .shelf {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
